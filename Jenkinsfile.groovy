@@ -11,7 +11,7 @@ node{
 
     }
     stage("move Index"){
-        sh "ssh ec2-user@18.188.162.93     "sudo mv /tmp/index.html /var/www/html/index.html"
+        sh "ssh ec2-user@18.188.162.93     sudo mv /tmp/index.html /var/www/html/index.html"
     }
     stage("restart httpd"){
         sh "ssh ec2-user@18.188.162.93      sudo systemctl restart httpd"
