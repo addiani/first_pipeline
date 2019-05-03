@@ -1,5 +1,5 @@
 node{
-   properties([parameters([string(defaultValue: 'IP', description: 'where should I build?', name: 'Environment', trim: false)]), pipelineTriggers([pollSCM('* * * * *')])])
+   properties([parameters([string(defaultValue: 'IP', description: 'where should I build?', name: 'Env', trim: false)]), pipelineTriggers([pollSCM('* * * * *')])])
    
    
    
