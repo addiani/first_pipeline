@@ -7,7 +7,7 @@ node{
         sh "ssh ec2-user@18.188.162.93       sudo yum install httpd -y"
     }
     stage("Index file"){
-        sh "scp index.html                    ec2-user@18.188.162.93"
+        sh "scp index.html                    ec2-user@18.188.162.93:/tmp"
 
     }
     stage("move Index"){
