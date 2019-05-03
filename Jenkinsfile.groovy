@@ -1,5 +1,6 @@
 node{
-    stage("Hello"){
-        sh "echo Hello world"
+    stage("Pull Repo"){
+        git 'git@github.com:addiani/cool_website.git'
+       
     }
 }
