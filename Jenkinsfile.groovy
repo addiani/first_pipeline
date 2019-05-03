@@ -1,5 +1,5 @@
 node{
-   properties([parameters([string(defaultValue: 'IP', description: 'where should I build?', name: 'Env', trim: false)]), pipelineTriggers([pollSCM('* * * * *')])])
+   properties([parameters([string(defaultValue: 'IP', description: 'where should I build?', name: 'ENV', trim: false)]), pipelineTriggers([pollSCM('* * * * *')])])
    
    
    
@@ -8,17 +8,17 @@ node{
        
     }
     stage("webserver Install"){
-        sh "ssh ec2-user@${Env}      sudo yum install httpd -y"
+        sh "ssh ec2-user@${ENV}      sudo yum install httpd -y"
     }
     stage("Index file"){
-        sh "scp index.html                    ec2-user@${Env}:/tmp"
+        sh "scp index.html                    ec2-user@${ENV}:/tmp"
 
     }
     stage("move Index"){
-        sh "ssh ec2-user@${Env}    sudo mv /tmp/index.html /var/www/html/index.html"
+        sh "ssh ec2-user@${ENV}    sudo mv /tmp/index.html /var/www/html/index.html"
     }
     stage("restart httpd"){
-        sh "ssh ec2-user@${Env}      sudo systemctl restart httpd"
+        sh "ssh ec2-user@${ENV}      sudo systemctl restart httpd"
     }
         
 }
